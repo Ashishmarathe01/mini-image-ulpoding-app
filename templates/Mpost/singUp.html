@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>singup</title>
+</head>
+<body>
+
+
+
+
+
+
+<form action="{% url 'singup' %}" method="POST" autocomplete="off">
+    {% csrf_token %}
+    Username :  <input  type="text" name="username" required><br><br>
+    full name : <input type="text" name="fname"><br><br>
+
+     password : <input type="password" name="password"><br><br>
+     CPassword :<input  type="password" name="password2" required><br><br>
+
+
+<div>
+    <p>captch</p>
+    <p style="color:green;  background:pink ;margin: 0px;width: 50px; height: 10x;">{{x}}+{{y}}</p>
+    </div>
+    Enter Captcha :  <input  type="text" name="num1" autocomplete="off">
+
+<input type="hidden" name="r1" value="{{l}}"><br>
+
+    <input type="submit" >
+
+</form>
+
+{%if messages %}
+    {% for message in messages %}
+    <h3 style="color:green;" >{{message }}</h3>
+    {% endfor %}
+    {% endif %}
+
+
+</body>
+</html>

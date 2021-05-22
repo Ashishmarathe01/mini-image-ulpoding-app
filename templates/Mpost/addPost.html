@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="{% url 'add' %}" method="POST"  enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="myfile">
+    <br>
+    <br>
+    <textarea type="text" name="desc" style="width : 561px;height : 135px ; ">Enter </textarea>
+    <input type="hidden" name="user_id" value="{{user.id}}">
+    <input type="hidden" name="name" value="{{user.username}}">
+    <br>
+    <br>
+    Privacy: <input type="radio" name="con"  value="True"
+>
+    Public :<input type="radio" name="con"  value="False">
+
+    <br>
+    <br>
+    <button type="submit">submit</button>
+
+
+</form>
+{%if messages %}
+    {% for message in messages %}
+    <h3 style="color:green;" >{{message }}</h3>
+    {% endfor %}
+    {% endif %}
+
+</body>
+</html>

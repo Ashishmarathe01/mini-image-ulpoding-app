@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--userName-->
+
+<br>
+<br>
+{% if find %}
+{% for fi in find %}
+<p style="color:blue"> Name of Post Owner :{{ fi.user_name }}</p>
+<br>
+<br>
+<div>
+
+ <div><img src="{{ fi.photo_main.url }}" alt="image"
+    width="100" height="100">
+        </div>
+</div>
+<p style="color:red">
+    Description :{{ fi.description }}
+</p>
+{% endfor %}
+{% endif %}
+
+<!--post-->
+{%if messages %}
+    {% for message in messages %}
+    <h3 style="color:green;" >{{message }}</h3>
+    {% endfor %}
+    {% endif %}
+
+</body>
+</html>
